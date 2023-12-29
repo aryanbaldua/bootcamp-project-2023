@@ -32,19 +32,20 @@ export default async function Page() {
         </main>
         <h1 className="page-title">MY BLOG</h1>
         Hello Guys! This is my blog.
-        {blogs.map((blog) => {
-          return (
-            <BlogPreview // This is how we call the component
-              key={blog.slug}
-              title={blog.title}
-              description={blog.description}
-              date={blog.date}
-              image={blog?.image}
-              //text={blog.text}
-              slug={blog.slug}
-            />
-          );
-        })}
+        {blogs &&
+          blogs.map((blog) => {
+            return (
+              <BlogPreview // This is how we call the component
+                key={blog.slug}
+                title={blog.title}
+                description={blog.description}
+                date={blog.date}
+                image={blog?.image}
+                //text={blog.text}
+                slug={blog.slug}
+              />
+            );
+          })}
       </main>
 
       <script src="./src/blog.js"> </script>

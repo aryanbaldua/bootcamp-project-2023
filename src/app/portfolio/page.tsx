@@ -23,18 +23,19 @@ export default async function Page() {
         ></Image>
       </Link> */}
 
-      {projects.map((project) => {
-        return (
-          <div>
-            <h2>{project.title}</h2>
-            <p>{project.description}</p>
-            <a href={`/portfolio/comment/${project._id}`}>Add Comment</a>
-            {project.comments.map((c) => {
-              return <div>{c}</div>;
-            })}
-          </div>
-        );
-      })}
+      {projects &&
+        projects.map((project) => {
+          return (
+            <div>
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
+              <a href={`/portfolio/comment/${project._id}`}>Add Comment</a>
+              {project.comments.map((c) => {
+                return <div>{c}</div>;
+              })}
+            </div>
+          );
+        })}
       <div className="project-details">
         <p className="project-name">Aryan's website</p>
         <p className="project-description">All about Aryan</p>

@@ -1,6 +1,5 @@
 "use client";
 
-import styles from "./page.module.css";
 import "@/app/global.css";
 import "@/app/global.css";
 import Link from "next/link";

@@ -5,9 +5,9 @@ type Props = {
   params: { slug: string };
 };
 
-export default async function Page({ params: { slug } }) {
+export default async function Page(props) {
   // now we can access slug
-  const blog = await getBlog(slug);
+  const blog = await getBlog(props.params.slug);
   console.log("page", blog);
 
   return (

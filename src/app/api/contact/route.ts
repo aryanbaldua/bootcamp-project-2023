@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: NextRequest, { body }: IParams) {
+type IParams = {
+  params: {
+    slug: string;
+  };
+};
+
+export async function POST(req: NextRequest, {}: IParams) {
   const result2 = await req.json();
 
   console.log("adding comment", result2);
