@@ -1,4 +1,3 @@
-import styles from './page.module.css'
 import "@/app/global.css"
 import Image from 'next/image'
 import sky from "@/app/images/sky.jpg"
