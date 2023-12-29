@@ -1,0 +1,43 @@
+import { NextRequest, NextResponse } from "next/server";
+import connectDB from "@/helpers/db";
+import blogSchema from "@/database/blogSchema";
+import Blog from "@/database/blogSchema";
+
+type IParams = {
+  params: {
+    slug: string;
+  };
+};
+
+/* 
+	In order to use params, you need to have a request parameter before
+
+	The reason why we do { params }, is to destructure, the object, meaning,
+	it allows us to obtain the individual properties within the "IParams" 
+	object directly and conveniently, 
+	such as the `params` property.
+
+	If we didn't do this, to obtain slug would look messy,
+	ex.
+	const slug = params.params.slug
+
+	There are more ways to destructure this, but that is up to you to find out
+	lol.
+
+ */
+export async function GET(req: NextRequest, { params }: IParams) {
+  const result = await connectDB(); // function from db.ts before
+
+  //console.log("connect sucesful", result);
+  const { slug } = params; // another destructure
+  console.log("check this", slug);
+
+  try {
+    const blog = await Blog.findOne({ slug: slug }).orFail();
+    console.log(blog);
+    return NextResponse.json(blog);
+  } catch (err) {
+    console.log(err);
+    return NextResponse.json("Blog not found.", { status: 404 });
+  }
+}
