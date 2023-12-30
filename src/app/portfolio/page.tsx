@@ -27,8 +27,8 @@ export default async function Page() {
         projects.map((project) => {
           return (
             <div>
-              <h2>{project.title}</h2>
-              <p>{project.description}</p>
+              <h2>Please share your thoughts!</h2>
+              <p>Add them Below</p>
               <a href={`/portfolio/comment/${project._id}`}>Add Comment</a>
               {project.comments.map((c) => {
                 return <div>{c}</div>;
